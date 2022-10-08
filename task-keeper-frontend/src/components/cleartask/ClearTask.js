@@ -1,5 +1,5 @@
 
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import DataContext from '../store/data-context';
 import styles from './ClearTask.module.css'
 

@@ -21,7 +21,7 @@ function Notification(props) {
         setTimeout(() => {
             setMessage('');
         }, 1000);
-    }, [flag]);
+    }, [flag, msg]);
 
 
     return (

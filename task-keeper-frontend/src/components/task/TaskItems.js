@@ -1,9 +1,9 @@
 
 import TaskInfo from './TaskInfo'
 import DataContext from '../store/data-context';
-import { useContext, useEffect } from 'react';
-import EditContext from '../store/edit-Context';
-
+import { useContext } from 'react';
+// import EditContext from '../store/edit-Context';
+// import { useEffect } from 'react';
 import './TaskItems.css'
 
 
@@ -11,12 +11,12 @@ function TaskItems() {
 
 
     const dataContx = useContext(DataContext);
-    const editContxt = useContext(EditContext);
+    // const editContxt = useContext(EditContext);
     const taskList = dataContx.tList;
-
-    useEffect(() => {
-        editContxt.resetState();
-    }, [taskList]);
+    // const resetState = editContxt.resetState();
+    // useEffect(() => {
+    //     editContxt.resetState();
+    // }, [taskList]);
 
 
     return (
