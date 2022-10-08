@@ -1,0 +1,16 @@
+.notification {
+    color: rgb(233, 62, 62);
+    /* font-weight: bold; */
+    background: rgb(175, 210, 234);
+    width: 60%;
+    height: 25px;
+    border-radius: 6px;
+    text-align: center;
+    padding-top: .2rem;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.notification.hide {
+    display: none;
+}

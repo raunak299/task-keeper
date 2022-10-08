@@ -1,0 +1,13 @@
+.delete-icon {
+    padding: .3rem;
+    border-radius: 4px;
+    background: rgb(116, 191, 244);
+    color: black;
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-left: 15px;
+}
+
+.delete-icon:hover {
+    background: rgb(233, 62, 62);
+}

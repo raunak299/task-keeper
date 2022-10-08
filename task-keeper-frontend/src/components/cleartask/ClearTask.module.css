@@ -1,0 +1,18 @@
+.clear-tasks {
+    color: rgb(233, 62, 62);
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+
+
+.clear-tasks-hide {
+    display: none;
+}
+
+/* 
+.clear-tasks:hover {
+    color: rgb(181, 120, 6);
+} */

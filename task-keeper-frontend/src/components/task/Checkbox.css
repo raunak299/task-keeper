@@ -1,0 +1,16 @@
+.custom-checkbox {
+    padding: .3rem;
+    font-size: .4rem;
+    border-radius: 4px;
+    margin-right: .3rem;
+    border-style: solid;
+    border-color: rgb(116, 191, 244);
+    color: white;
+
+}
+
+.clicked {
+    background: rgb(116, 191, 244);
+    color: black;
+    border-color: rgb(116, 191, 244);
+}
