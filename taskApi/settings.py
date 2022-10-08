@@ -137,5 +137,6 @@ CORS_ALLOWED_ORIGINS = [
     # "https://example.com",
     # "https://sub.example.com",
     "http://localhost:3000",
+    "https://stately-yeot-fbbca1.netlify.app",
     # "http://127.0.0.1:9000",
 ]
