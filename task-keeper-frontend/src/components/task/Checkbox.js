@@ -34,8 +34,8 @@ function Checkbox(props) {
                     "Content-Type": "application/json"
                 },
             }, (data) => (replaceTaskList(data)));
-            checkboxClicked && showNotification('Tasks Completed !!');
-            !checkboxClicked && showNotification('Tasks InComplete !!');
+            checkboxClicked && showNotification('Tasks InComplete !!');
+            !checkboxClicked && showNotification('Tasks Complete !!');
         })
     }
     return (
