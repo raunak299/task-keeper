@@ -2,30 +2,47 @@ import FormInput from './FormInput';
 import { useContext } from 'react';
 import DataContext from '../store/data-context';
 import './Form.css';
+import useHTTP from '../../custom-hooks/http-hook';
 
 function Form() {
 
-    const dataContx = useContext(DataContext);
+    const { replaceTaskList, showNotification } = useContext(DataContext);
+    const { sendRequest } = useHTTP();
 
-
-    const onSaveExpenseDataHandler = (data) => {
+    const onSaveTaskDataHandler = (data) => {
+        console.log(data)
         const taskData = {
             ...data,
-            id: Math.random().toString(),
-            taskComplete: false
+            checked: false
         }
-        // console.log(taskData);
-        dataContx.onAddTask(taskData);
+
+        sendRequest({
+            url: `http://localhost:8000/api/v1/tasks/`,
+            method: 'POST',
+            body: JSON.stringify(
+                taskData
+            ),
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+        }, () => {
+            sendRequest({
+                url: 'http://localhost:8000/api/v1/tasks/',
+                headers: {
+                    'Accept': 'application/json',
+                    "Content-Type": "application/json"
+                },
+            }, (data) => (replaceTaskList(data)));
+            showNotification('New Task Added !!')
+        });
+
     }
 
-    const onEditTaskDataHandler = (taskData) => {
-        // console.log(taskData);
-        dataContx.onEditTask(taskData);
-    }
 
 
     return (
-        <FormInput onSaveTaskData={onSaveExpenseDataHandler} onEditTaskData={onEditTaskDataHandler} />
+        <FormInput onSaveTaskData={onSaveTaskDataHandler} />
     )
 }
 

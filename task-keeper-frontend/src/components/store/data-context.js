@@ -3,11 +3,9 @@ import React from 'react';
 const DataContext = React.createContext(
     {
         tList: [],
-        notification: [],
-        onAddTask: (item) => { },
-        onDeleteTask: (id) => { },
-        onClearItems: () => { },
-        onEditTask: (id) => { },
+        notification: '',
+        replaceTaskList: (taskList) => { },
+        showNotification: () => { },
 
     }
 );

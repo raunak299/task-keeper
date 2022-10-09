@@ -1,18 +1,40 @@
 import './Delete.css'
 import DataContext from '../store/data-context';
 import { useContext } from 'react';
+import useHTTP from '../../custom-hooks/http-hook';
+
 
 function Delete(props) {
 
-    const dataContx = useContext(DataContext);
+    const { replaceTaskList, showNotification } = useContext(DataContext);
+    const { sendRequest } = useHTTP();
     const onDeleteHandler = () => {
-        console.log(props.id);
-        dataContx.onDeleteTask(props.id);
+
+        // const getRequest = 
+
+
+        sendRequest({
+            url: `http://localhost:8000/api/v1/tasks/${props.id}/`,
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+        }, () => {
+            sendRequest({
+                url: 'http://localhost:8000/api/v1/tasks/',
+                headers: {
+                    'Accept': 'application/json',
+                    "Content-Type": "application/json"
+                },
+            }, (data) => (replaceTaskList(data)));
+            showNotification('Tasks Deleted !!')
+        });
     }
 
     return (
         <div onClick={onDeleteHandler}>
-            <img className='delete-icon' src='https://cdn-icons.flaticon.com/png/512/2874/premium/2874821.png?token=exp=1655881842~hmac=908a877ce707ddad294ba9863ad44e19' alt='delete' />
+            <img className='delete-icon' src='https://img.icons8.com/external-solid-style-bomsymbols-/65/000000/external-bin-business-shop-finance-solid-style-set-2-solid-style-bomsymbols--2.png' alt='delete' />
         </div>
     );
 }

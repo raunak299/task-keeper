@@ -1,18 +1,41 @@
 import './Checkbox.css'
-import { useState } from 'react';
+import { useContext } from 'react';
+import DataContext from '../store/data-context';
+import useHTTP from '../../custom-hooks/http-hook';
 
 
-function Checkbox() {
+function Checkbox(props) {
 
 
 
-    let [checkboxClicked, setCheckbox] = useState(false);
 
+    let { tList, replaceTaskList, showNotification } = useContext(DataContext);
+    const { taskInfo, checked } = tList.find((task) => (task['task_id'] === props.id));
+    const checkboxClicked = checked;
+    const { sendRequest } = useHTTP();
     const checkboxHandler = () => {
-        setCheckbox((prevState) => {
-            return (!prevState);
-        });
-        // console.log(checkboxClicked);
+
+        sendRequest({
+            url: `http://localhost:8000/api/v1/tasks/${props.id}/`,
+            method: 'PUT',
+            body: JSON.stringify({
+                taskInfo,
+                checked: !checked
+            }),
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+        }, () => {
+            sendRequest({
+                url: 'http://localhost:8000/api/v1/tasks/',
+                headers: {
+                    'Accept': 'application/json',
+                    "Content-Type": "application/json"
+                },
+            }, (data) => (replaceTaskList(data)));
+            showNotification('Tasks Completed !!')
+        })
     }
     return (
         //inline dynamic style method

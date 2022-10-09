@@ -10,12 +10,11 @@ function TaskInfo(props) {
     return (
         <div className="task-info">
             <div>
-                <Checkbox />
+                <Checkbox id={props.id} />
                 <input type="checkbox" id={props.id} />
                 <label id={props.id}> {props.input} </label>
             </div>
             <div className='change'>
-                {/* <Edit id={props.id} /> */}
                 <Delete id={props.id} />
             </div>
         </div >

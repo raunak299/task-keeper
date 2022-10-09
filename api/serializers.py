@@ -3,6 +3,7 @@ from api.models import Task
 
 #create serializers here
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
+    task_id=serializers.ReadOnlyField()
     class Meta:
         model=Task
         fields="__all__"

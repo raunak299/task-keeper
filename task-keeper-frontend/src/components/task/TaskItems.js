@@ -13,6 +13,7 @@ function TaskItems() {
     const dataContx = useContext(DataContext);
     // const editContxt = useContext(EditContext);
     const taskList = dataContx.tList;
+    // console.log(taskList);
     // const resetState = editContxt.resetState();
     // useEffect(() => {
     //     editContxt.resetState();
@@ -24,10 +25,10 @@ function TaskItems() {
             {taskList.map((task) => (
 
                 <TaskInfo
-                    key={task.id}
-                    input={task.taskName}
-                    id={task.id}
-                    taskComplete={task.taskComplete}
+                    key={task['task_id']}
+                    input={task.taskInfo}
+                    id={task['task_id']}
+                    taskComplete={task.checked}
                 />))
             }
         </div>

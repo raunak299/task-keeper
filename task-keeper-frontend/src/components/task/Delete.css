@@ -1,10 +1,10 @@
 .delete-icon {
-    padding: .3rem;
+    /* padding: .3rem; */
     border-radius: 4px;
     background: rgb(116, 191, 244);
     color: black;
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 1.5rem;
+    height: 1.5rem;
     margin-left: 15px;
 }
 
