@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     sendRequest({
-      url: 'http://localhost:8000/api/v1/tasks/',
+      url: '/api/v1/tasks/',
       headers: {
         'Accept': 'application/json',
         "Content-Type": "application/json"
